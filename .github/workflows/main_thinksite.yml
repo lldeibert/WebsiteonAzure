@@ -39,7 +39,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      url: $https://thinksite.azurewebsites.net
 
     steps:
       - name: Download artifact from build job
@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'Thinksite'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5EA0B794E6344AE4869CD316A8ADD948 }}
+          publish-profile: $<publishData><publishProfile profileName="Thinksite - Web Deploy" publishMethod="MSDeploy" publishUrl="thinksite.scm.azurewebsites.net:443" msdeploySite="Thinksite" userName="$Thinksite" userPWD="Rsf0fLM28aqXmDMfPg15hPnSk0Zi8hQZFXXmLkjxNMGBcPTR704XXLHaA5m1" destinationAppUrl="https://thinksite.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="Thinksite - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-dm1-187.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="Thinksite\$Thinksite" userPWD="Rsf0fLM28aqXmDMfPg15hPnSk0Zi8hQZFXXmLkjxNMGBcPTR704XXLHaA5m1" destinationAppUrl="https://thinksite.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="Thinksite - Zip Deploy" publishMethod="ZipDeploy" publishUrl="thinksite.scm.azurewebsites.net:443" userName="$Thinksite" userPWD="Rsf0fLM28aqXmDMfPg15hPnSk0Zi8hQZFXXmLkjxNMGBcPTR704XXLHaA5m1" destinationAppUrl="https://thinksite.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>}}
           package: .
